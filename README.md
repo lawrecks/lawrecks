@@ -1,4 +1,4 @@
-### Hi there <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="3px">, I am Ugo!
+### Hi there <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="3px" height="3px">, I am Ugo!
 
 I am a desirous software engineer with competencies in modern Javascript, Typescript, NodeJs, Graphql, PHP, Laravel, and more.
 
