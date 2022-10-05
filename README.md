@@ -6,9 +6,3 @@ I love code and code loves me, sometimes🤪. We fight too you know 😁... a lo
 and we get to know ourselves better. Okay I'm saying too much 🤐
 
 Asides coding, I'm a passionate gamer and I love to sing.
-
-## &#x1f4c8; My GitHub Stats
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=lawrecks&layout=compact&hide=html,css&theme=merko&show_icons=true)](https://github.com/anuraghazra/github-readme-stats)
-
-[![Catalin's GitHub stats](https://github-readme-stats.vercel.app/api?username=lawrecks&theme=merko)](https://github.com/anuraghazra/github-readme-stats)
