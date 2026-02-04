@@ -1,0 +1,51 @@
+name: Update Years of Experience
+
+on:
+  schedule:
+    # Run on the 1st of every month at 00:00 UTC
+    - cron: '0 0 1 * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update README
+        run: |
+          # Calculate years of experience from April 2018
+          START_YEAR=2018
+          START_MONTH=4
+          CURRENT_YEAR=$(date +%Y)
+          CURRENT_MONTH=$(date +%-m)
+          
+          # Calculate the difference in years
+          YEARS=$((CURRENT_YEAR - START_YEAR))
+          
+          # If current month is before April, subtract 1 year
+          if [ $CURRENT_MONTH -lt $START_MONTH ]; then
+            YEARS=$((YEARS - 1))
+          fi
+          
+          # Update README.md
+          sed -i "s/with [0-9]\+ years of experience/with ${YEARS}+ years of experience/" README.md
+          
+          # Check if there are changes
+          if git diff --quiet README.md; then
+            echo "No changes needed"
+            echo "HAS_CHANGES=false" >> $GITHUB_ENV
+          else
+            echo "Changes detected"
+            echo "HAS_CHANGES=true" >> $GITHUB_ENV
+          fi
+
+      - name: Commit and push if changed
+        if: env.HAS_CHANGES == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git commit -m "chore: update years of experience"
+          git push
